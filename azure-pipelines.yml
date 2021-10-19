@@ -94,11 +94,7 @@ stages:
               arguments: "--no-build --configuration $(buildConfiguration)"
               publishTestResults: true
               projects: "$(System.DefaultWorkingDirectory)/**/*UITests.csproj"
-
-
-  - stage: "Load Test"
-    displayName: "Run JMeter Load tests"
-    dependsOn: Build
+              
       - job: RunLoadTests
         displayName: 'Run load tests'
         pool:
