@@ -75,7 +75,7 @@ stages:
         pool:
           vmImage: "windows-2019"
         variables:
-          - group: "office365credentials"
+          - group: "Release"
         steps:
           - task: UseDotNet@2
             displayName: "Use .NET SDK $(dotnetSdkVersion)"
@@ -100,7 +100,6 @@ stages:
     displayName: "Run JMeter Load tests"
     dependsOn: Build
       - job: RunLoadTests
-        dependsOn: Deploy
         displayName: 'Run load tests'
         pool:
           vmImage: 'ubuntu-20.04'
