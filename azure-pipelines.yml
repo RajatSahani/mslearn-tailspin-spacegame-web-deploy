@@ -70,14 +70,8 @@ stages:
   displayName: 'Load test'
   dependsOn: Build
   jobs:
-  - deployment: Build
-    pool:
-      vmImage: 'ubuntu-20.04'
-    
-    variables:
-    - group: 'Release'
   - job: RunLoadTests
-    dependsOn: Deploy
+    dependsOn: Build
     displayName: 'Run load tests'
     pool:
       vmImage: 'ubuntu-20.04'
